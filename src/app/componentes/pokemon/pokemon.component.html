@@ -1,0 +1,19 @@
+<article>
+  <app-mostrar-imagen [imagen]="pokemon.imagen"></app-mostrar-imagen>
+
+  <h2 *ngIf="pokemon.nombre; then aquiIf; else aquiElse"></h2>
+  <ng-template #aquiIf>
+    <h2>{{ pokemon.nombre | uppercase }}</h2>
+  </ng-template>
+  <ng-template #aquiElse>
+    <h2>Sin nombre</h2>
+  </ng-template>
+  <p *ngIf="pokemon.detalle; then ifDetalle; else elseDetalle"></p>
+  <ng-template #ifDetalle>
+    <p> {{ pokemon.detalle }} </p>
+  </ng-template>
+  <ng-template #elseDetalle>
+    <p>Sin detalle</p>
+  </ng-template>
+  <button (click)="emitirId()">Eliminar:</button>
+</article>

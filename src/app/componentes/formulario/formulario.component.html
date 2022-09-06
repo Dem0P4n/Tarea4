@@ -1,0 +1,44 @@
+<section>
+  <fieldset>
+    <label for="">Nombre de la imagen</label>
+    <input
+      type="text"
+      name="nombre"
+      [value]="nuevoHistorial.nombre"
+      (input)="cambiarNombre($event)"
+      >
+      <p>{{ nuevoHistorial.nombre }}</p>
+  </fieldset>
+  <fieldset>
+    <label for="">Detalle de la imagen</label>
+    <textarea
+      name="detalle"
+      [value]="nuevoHistorial.detalle"
+      (input)="cambiarDetalle($event)"
+      cols="30"
+      rows="10"
+    ></textarea>
+    <p>{{ nuevoHistorial.detalle }} </p>
+  </fieldset>
+  <fieldset>
+    <label for="">URL de la imagen</label>
+    <input
+      type="url"
+      name="imagen"
+      [value]="nuevoHistorial.imagen"
+      (input)="cambiarImagen($event)"
+    >
+    <app-mostrar-imagen
+      [imagen]="nuevoHistorial.imagen"
+    ></app-mostrar-imagen>
+  </fieldset>
+  <fieldset>
+    <button
+      type="button"
+      role="button"
+      (click)="guardarHistorial()"
+    >
+      Guardar
+    </button>
+  </fieldset>
+</section>

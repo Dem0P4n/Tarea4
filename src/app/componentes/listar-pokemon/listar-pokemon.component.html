@@ -1,0 +1,3 @@
+<section>
+  <app-pokemon *ngFor="let item of pokemones" [pokemon]="item" (idPokemon)="escucharId($event)" ></app-pokemon>
+</section>
