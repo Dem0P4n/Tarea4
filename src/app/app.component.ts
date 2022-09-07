@@ -11,7 +11,7 @@ export class AppComponent {
   public elementosGuardados: Array<HistoriaImagen> = [];
   public imagen: string = 'https://univia.info/wp-content/uploads/2015/09/33.jpg';
   public imagen2: string = 'https://static9.depositphotos.com/94920/1090/i/450/depositphotos_10907008-stock-photo-siberian-cat-sitting-in-front.jpg';
-
+  public idModificar!: number;
 
   public escuchandoAlHijo(){
     console.log('Hola desde el padre!!!')
@@ -31,6 +31,16 @@ export class AppComponent {
     this.elementosGuardados.splice(pos,1);
     console.log('la posicion es', pos)
 
+  }
+
+  public guardarId(id: number): void {
+    this.idModificar = id;
+    console.log('f=',this.idModificar)
+  }
+
+  public modificarDato(nuevo : HistoriaImagen): void{
+
+    this.elementosGuardados[this.idModificar - 1] = nuevo
   }
 
 }

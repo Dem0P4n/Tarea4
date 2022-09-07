@@ -9,10 +9,14 @@ export class PokemonComponent{
 
   @Input() public pokemon!: HistoriaImagen;
   @Output() public idPokemon = new EventEmitter<number>();
-
+  @Output() public idPoke = new EventEmitter<number>();
 
   public emitirId(): void {
     this.idPokemon.emit(this.pokemon.id);
+  }
+
+  public emId(): void {
+    this.idPoke.emit(this.pokemon.id);
   }
 
 

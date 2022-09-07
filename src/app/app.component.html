@@ -6,5 +6,5 @@ hola :D
   [imagen]="imagen2"
 ></app-mostrar-imagen>
 {{ elementosGuardados.length }}
-<app-formulario (salida)="escuchandoAlHijo()" (salidaString)="escuchandoDetalle($event)" (enviarDato)="agregarNuevo($event)"></app-formulario>
-<app-listar-pokemon  [pokemones]="elementosGuardados" (posIndex)="borrarElemento($event)"></app-listar-pokemon>
+<app-formulario (salida)="escuchandoAlHijo()" (salidaString)="escuchandoDetalle($event)" (enviarDato)="agregarNuevo($event)" [idPokemonModificado]="idModificar" (enviarDatoModificado)="modificarDato($event)" ></app-formulario>
+<app-listar-pokemon  [pokemones]="elementosGuardados" (posIndex)="borrarElemento($event)" (idPoke2)="guardarId($event)"  ></app-listar-pokemon>

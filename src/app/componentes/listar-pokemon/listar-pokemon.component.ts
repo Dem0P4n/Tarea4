@@ -9,6 +9,7 @@ export class ListarPokemonComponent{
 
   @Input() public pokemones: Array<HistoriaImagen> = [];
   @Output() public posIndex = new EventEmitter<number>();
+  @Output() public idPoke2 = new EventEmitter<number>();
 
   public escucharId(id: number): void {
     const pos = this.pokemones.findIndex((elemento) => {
@@ -18,6 +19,11 @@ export class ListarPokemonComponent{
 
 
 
+  }
+
+  public mandarId(id:number): void {
+    console.log('xd=', id)
+    this.idPoke2.emit(id);
   }
 
 

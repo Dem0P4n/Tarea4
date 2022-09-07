@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter, Input} from '@angular/core';
 import {HistoriaImagen} from './../../modelos/historia-imagen'
 @Component({
   selector: 'app-formulario',
@@ -7,9 +7,11 @@ import {HistoriaImagen} from './../../modelos/historia-imagen'
 })
 export class FormularioComponent  {
 
+  @Input() public idPokemonModificado!: number
   @Output() public salida = new EventEmitter();
   @Output() public salidaString = new EventEmitter<string>();
   @Output() public enviarDato = new EventEmitter<HistoriaImagen>();
+  @Output() public enviarDatoModificado = new EventEmitter<HistoriaImagen>();
 
   public nuevoHistorial: HistoriaImagen = {
     nombre: '',
@@ -46,5 +48,16 @@ export class FormularioComponent  {
     this.salida.emit();
   }
 
+  public confirmar() {
+
+    const copia: HistoriaImagen = {
+      ...this.nuevoHistorial
+    }
+    copia.id = this.idPokemonModificado
+    this.enviarDatoModificado.emit(copia);
+
+
+
+  }
 
 }
